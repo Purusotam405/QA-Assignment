@@ -1,0 +1,130 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <a routerLink="/fixtures/fixture"
+    ><button type="button" class="btn btn-sm btn-outline-primary">
+      Go back
+    </button></a
+  >
+  <div class="card mx-auto p-2 text-center" style="width: 500px;">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="sel1">Match:</label>
+        <select
+          class="form-control"
+          id="sel1"
+          fromControlName="matchId"
+          (change)="changeMatchId($event)"
+        >
+          <option value="">Choose your Match</option>
+          <option *ngFor="let fixture of fixtures" [value]="fixture.id"
+            >{{ fixture.home }} VS {{ fixture.away }}</option
+          >
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="email">Email: </label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          formControlName="email"
+        />
+        <span class="help-block" *ngIf="bookingForm.get('email').errors">
+          <span
+            *ngIf="
+              bookingForm.get('email').errors.required &&
+              (bookingForm.get('email').touched ||
+                bookingForm.get('email').dirty)
+            "
+          >
+            Email is required
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="cardInfo">Card Info: </label>
+        <input
+          type="number"
+          id="cardInfo"
+          class="form-control"
+          formControlName="cardInfo"
+        />
+        <span class="help-block" *ngIf="bookingForm.get('cardInfo').errors">
+          <span
+            *ngIf="
+              bookingForm.get('cardInfo').errors.required &&
+              (bookingForm.get('cardInfo').touched ||
+                bookingForm.get('cardInfo').dirty)
+            "
+          >
+            Card Info is required
+          </span>
+        </span>
+      </div>
+      <div class="alert alert-danger" *ngIf="errMsg">{{ errMsg }}</div>
+      <button
+        class="btn btn-success"
+        type="button"
+        data-toggle="modal"
+        (click)="clicked()"
+        data-target="#exampleModal"
+      >
+        Book the ticket
+      </button>
+      <button class="btn btn-danger" type="reset">Reset</button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Booking Summary
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" *ngIf="booked">
+              <h3>{{ booked.home }} Vs {{ booked.away }}</h3>
+              <br />
+              Time: {{ booked.time }} <br />
+              Date: {{ booked.date }} <br />
+              Price: {{ booked.price }} <br />
+              Stadium: {{ booked.stadium }}
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-dismiss="modal"
+                (click)="onSubmit()"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

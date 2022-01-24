@@ -1,0 +1,110 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="fixture && user">
+  <a routerLink="/fixtures/fixture"
+    ><button type="button" class="btn btn-sm btn-outline-primary">
+      Go back
+    </button></a
+  >
+  <div class="card mx-auto p-2 text-center" style="width: 500px;">
+    <h3>{{ fixture.home }} vs {{ fixture.away }}</h3>
+    <h5>{{ fixture.date }}</h5>
+    <h5>Name: {{ user.firstName }} {{ user.secondName }}</h5>
+    <h5>Email: {{ user.email }}</h5>
+    <form [formGroup]="bettingForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="matchId">Match ID: </label>
+        <input
+          type="number"
+          id="matchId"
+          readonly
+          class="form-control"
+          formControlName="matchId"
+          [ngModel]="fixture.id"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cardInfo">Card Info: </label>
+        <input
+          type="number"
+          id="cardInfo"
+          class="form-control"
+          formControlName="cardInfo"
+        />
+        <span class="help-block" *ngIf="bettingForm.get('cardInfo').errors">
+          <span
+            *ngIf="
+              bettingForm.get('cardInfo').errors.required &&
+              (bettingForm.get('cardInfo').touched ||
+                bettingForm.get('cardInfo').dirty)
+            "
+          >
+            Card Info is required
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="homeScore">homeScore: </label>
+        <input
+          type="number"
+          id="homeScore"
+          class="form-control"
+          formControlName="homeScore"
+        />
+        <span class="help-block" *ngIf="bettingForm.get('homeScore').errors">
+          <span
+            *ngIf="
+              bettingForm.get('homeScore').errors.required &&
+              (bettingForm.get('homeScore').touched ||
+                bettingForm.get('homeScore').dirty)
+            "
+          >
+            Home Score is required
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="awayScore">Away Score: </label>
+        <input
+          type="number"
+          id="awayScore"
+          class="form-control"
+          formControlName="awayScore"
+        />
+        <span class="help-block" *ngIf="bettingForm.get('homeScore').errors">
+          <span
+            *ngIf="
+              bettingForm.get('awayScore').errors.required &&
+              (bettingForm.get('awayScore').touched ||
+                bettingForm.get('awayScore').dirty)
+            "
+          >
+            Away Score is required
+          </span>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount: </label>
+        <input
+          type="number"
+          id="amount"
+          class="form-control"
+          formControlName="amount"
+        />
+        <span class="help-block" *ngIf="bettingForm.get('amount').errors">
+          <span
+            *ngIf="
+              bettingForm.get('amount').errors.required &&
+              (bettingForm.get('amount').touched ||
+                bettingForm.get('amount').dirty)
+            "
+          >
+            Amount is required
+          </span>
+        </span>
+      </div>
+      <div class="alert alert-danger" *ngIf="errMsg">{{ errMsg }}</div>
+      <button class="btn btn-success" type="submit">Place the bet</button>
+      <button class="btn btn-danger" type="reset">Reset</button>
+    </form>
+  </div>
+</div>

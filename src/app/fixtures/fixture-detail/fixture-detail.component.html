@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="fixture">
+  <a routerLink="/fixtures/fixture"
+    ><button type="button" class="btn btn-sm btn-outline-primary">
+      Go back
+    </button></a
+  >
+  <button
+    type="button"
+    *ngIf="accessControl()"
+    class="btn btn-sm btn-outline-danger float-right"
+    (click)="delete(fixture.id)"
+  >
+    Delete
+  </button>
+  <div class="d-flex justify-content-center">
+    <h2>{{ fixture.home }} vs {{ fixture.away }} ({{ fixture.time }})</h2>
+  </div>
+  <p>
+    Referee: {{ fixture.officials.referee }} <br />
+    Lines men: {{ fixture.officials.linesman1 }} and
+    {{ fixture.officials.linesman2 }} <br />
+    Stadium: {{ fixture.stadium }} <br />
+    Date: {{ fixture.date }} <br />
+    Booking Price: ${{ fixture.price }}
+  </p>
+
+  <div class="row justify-content-center">
+    <table class="table col-md-4">
+      <thead class="text-center">
+        <tr>
+          <th colspan="2">
+            {{ fixture.home }} <small>({{ fixture.homeManager }})</small>
+          </th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Player Name</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let player of fixture.homePlayers">
+          <td>{{ player.number }}</td>
+          <td>{{ player.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table col-md-4">
+      <thead class="text-center">
+        <tr>
+          <th colspan="2">
+            {{ fixture.away }} <small>({{ fixture.awayManager }})</small>
+          </th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Player Name</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let player of fixture.awayPlayers">
+          <td>{{ player.number }}</td>
+          <td>{{ player.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

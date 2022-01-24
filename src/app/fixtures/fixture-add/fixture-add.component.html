@@ -1,0 +1,374 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <form [formGroup]="matchForm" (ngSubmit)="submit()">
+    <a routerLink="/fixtures/fixture"
+      ><button class="btn btn-outline-primary btn-sm">Go back</button></a
+    >
+    <hr />
+    <h3>Match officials</h3>
+    <div class="container">
+      <div class="form-group" formGroupName="officials">
+        <div class="row">
+          <label for="referee" class="col-sm-2 col-form-label">Referee: </label>
+          <div class="col m-1">
+            <input
+              type="text"
+              id="referee"
+              class="form-control"
+              placeholder="Referee"
+              formControlName="referee"
+            />
+            <span
+              class="help-block"
+              *ngIf="matchForm.get('officials.referee').errors"
+            >
+              <span
+                *ngIf="
+                  matchForm.get('officials.referee').errors.required &&
+                  (matchForm.get('officials.referee').touched ||
+                    matchForm.get('officials.referee').dirty)
+                "
+              >
+                Referee is required
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <label for="linesman1" class="col-sm-2 col-form-label"
+            >Linesman 1:
+          </label>
+          <div class="col m-1">
+            <input
+              type="text"
+              id="linesman1"
+              class="form-control"
+              placeholder="linesman1"
+              formControlName="linesman1"
+            />
+            <span
+              class="help-block"
+              *ngIf="matchForm.get('officials.linesman1').errors"
+            >
+              <span
+                *ngIf="
+                  matchForm.get('officials.linesman1').errors.required &&
+                  (matchForm.get('officials.linesman1').touched ||
+                    matchForm.get('officials.linesman1').dirty)
+                "
+              >
+                linesman is required
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="row ">
+          <label for="linesman2" class="col-sm-2 col-form-label"
+            >Linesman 2:
+          </label>
+          <div class="col m-1">
+            <input
+              type="text"
+              id="linesman2"
+              class="form-control"
+              placeholder="linesman2"
+              formControlName="linesman2"
+            />
+            <span
+              class="help-block"
+              *ngIf="matchForm.get('officials.linesman2').errors"
+            >
+              <span
+                *ngIf="
+                  matchForm.get('officials.linesman2').errors.required &&
+                  (matchForm.get('officials.linesman2').touched ||
+                    matchForm.get('officials.linesman2').dirty)
+                "
+              >
+                Linesman is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <h3>Match Details</h3>
+    <div class="container">
+      <div class="form-group row">
+        <label for="team" class="col-sm-2 col-form-label">Teams: </label>
+        <div class="col">
+          <input
+            type="text"
+            id="team"
+            class="form-control"
+            placeholder="Home Team"
+            formControlName="home"
+          />
+          <span class="help-block" *ngIf="matchForm.get('home').errors">
+            <span
+              *ngIf="
+                matchForm.get('home').errors.required &&
+                (matchForm.get('home').touched || matchForm.get('home').dirty)
+              "
+            >
+              Home team is required
+            </span>
+          </span>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            id="team"
+            class="form-control"
+            placeholder="Away Team"
+            formControlName="away"
+          />
+          <span class="help-block" *ngIf="matchForm.get('away').errors">
+            <span
+              *ngIf="
+                matchForm.get('away').errors.required &&
+                (matchForm.get('away').touched || matchForm.get('away').dirty)
+              "
+            >
+              Away team is required
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Stadium" class="col-sm-2 col-form-label">Stadium: </label>
+        <div class="col">
+          <input
+            type="text"
+            id="Stadium"
+            class="form-control"
+            placeholder="Stadium"
+            formControlName="stadium"
+          />
+          <span class="help-block" *ngIf="matchForm.get('stadium').errors">
+            <span
+              *ngIf="
+                matchForm.get('stadium').errors.required &&
+                (matchForm.get('stadium').touched ||
+                  matchForm.get('stadium').dirty)
+              "
+            >
+              Stadium is required
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Price" class="col-sm-2 col-form-label">Price: </label>
+        <div class="col">
+          <input
+            type="number"
+            id="Price"
+            class="form-control"
+            placeholder="Price"
+            formControlName="price"
+          />
+          <span class="help-block" *ngIf="matchForm.get('price').errors">
+            <span
+              *ngIf="
+                matchForm.get('price').errors.required &&
+                (matchForm.get('price').touched || matchForm.get('price').dirty)
+              "
+            >
+              Price is required
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Time" class="col-sm-2 col-form-label">Time: </label>
+        <div class="col">
+          <input
+            type="time"
+            id="Time"
+            class="form-control"
+            placeholder="Time"
+            formControlName="time"
+          />
+          <span class="help-block" *ngIf="matchForm.get('time').errors">
+            <span
+              *ngIf="
+                matchForm.get('time').errors.required &&
+                (matchForm.get('time').touched || matchForm.get('time').dirty)
+              "
+            >
+              Time is required
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="date" class="col-sm-2 col-form-label">Date: </label>
+        <div class="col">
+          <input
+            type="date"
+            id="date"
+            type="date"
+            class="form-control"
+            placeholder="Date"
+            formControlName="date"
+          />
+          <span class="help-block" *ngIf="matchForm.get('date').errors">
+            <span
+              *ngIf="
+                matchForm.get('date').errors.required &&
+                (matchForm.get('date').touched || matchForm.get('date').dirty)
+              "
+            >
+              Date is required
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="manager" class="col-sm-2 col-form-label">Manager: </label>
+        <div class="col">
+          <input
+            type="text"
+            id="manager"
+            class="form-control"
+            placeholder="Home Manager"
+            formControlName="homeManager"
+          />
+          <span class="help-block" *ngIf="matchForm.get('homeManager').errors">
+            <span
+              *ngIf="
+                matchForm.get('homeManager').errors.required &&
+                (matchForm.get('homeManager').touched ||
+                  matchForm.get('homeManager').dirty)
+              "
+            >
+              Home Manager is required
+            </span>
+          </span>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            id="manager"
+            class="form-control"
+            placeholder="Away Manager"
+            formControlName="awayManager"
+          />
+          <span class="help-block" *ngIf="matchForm.get('awayManager').errors">
+            <span
+              *ngIf="
+                matchForm.get('awayManager').errors.required &&
+                (matchForm.get('awayManager').touched ||
+                  matchForm.get('awayManager').dirty)
+              "
+            >
+              Away Manager is required
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <hr />
+      <h3>Players:</h3>
+      <small>Add 11 players each</small>
+      <div class="form-group row mx-auto">
+        <div class="col">
+          <label for="homePlayers" class="col col-form-label"
+            >Home Players:
+          </label>
+
+          <div formArrayName="homePlayers" id="homePlayers">
+            <div
+              *ngFor="let player of homePlayers.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <div *ngIf="i < 11">
+                <div>Player {{ i + 1 }}:</div>
+                <div class="row">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="player name"
+                      formControlName="name"
+                      id="player"
+                      class="form-control"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="number"
+                      placeholder="No."
+                      id="player"
+                      formControlName="number"
+                      class="form-control col"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <label for="awayPlayers" class="col col-form-label"
+            >Away Players:
+          </label>
+          <div formArrayName="awayPlayers">
+            <div
+              *ngFor="let player of awayPlayers.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <div *ngIf="i < 11">
+                <div>Player {{ i + 1 }} :</div>
+                <div class="row">
+                  <div>
+                    <input
+                      type="text"
+                      id="awayPlayers"
+                      placeholder="player name"
+                      formControlName="name"
+                      class="form-control"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="number"
+                      id="awayPlayers"
+                      placeholder="No."
+                      formControlName="number"
+                      class="form-control col"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-outline-primary col-lg-1 mx-auto"
+        [ngClass]="{ removeBtn: counter == 11 }"
+        (click)="addPlayers()"
+      >
+        + player
+      </button>
+    </div>
+    <hr />
+    <div class="alert alert-danger" *ngIf="errMsg">{{ errMsg }}</div>
+    <div class="row ">
+      <button class="btn btn-danger col-lg-2 m-1 mx-auto" type="reset">
+        Reset
+      </button>
+      <button
+        class="btn btn-success col-lg-2 m-1 mx-auto"
+        type="submit"
+        [disabled]="counter !== 11"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

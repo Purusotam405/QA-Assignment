@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2 class="text-center">Match Fixtures</h2>
+  <hr />
+  <table class="table table-hover">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">Home</th>
+        <th scope="col">Time & Date</th>
+        <th scope="col">Away</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let fixture of fixtures$ | async">
+        <td>{{ fixture.home }}</td>
+        <td>
+          <div class="col">{{ fixture.time }}</div>
+          <div class="col">
+            <small>{{ fixture.date }}</small>
+          </div>
+        </td>
+        <td>{{ fixture.away }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-primary"
+            (click)="bet(fixture.id)"
+          >
+            Bet
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-sm btn-outline-primary"
+            (click)="onClick(fixture.id)"
+          >
+            Match Detail
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
