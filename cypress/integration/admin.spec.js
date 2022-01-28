@@ -1,9 +1,48 @@
 /// <reference types="Cypress" />
 
 describe('e2e Cypress Test', function () {
+    let adminlogging
     beforeEach(function () {
-        cy.fixture('admin').as('admin');
+        cy.fixture('adminLogin').then((admin) => {
+            adminlogging = admin
+        });
     });
+
+    it('Cannot Find User', () => {
+
+        cy
+            .visit('/login');
+        cy
+            .get('[type="text"]').type('purusotam403@gmail.com').should('have.value', 'purusotam403@gmail.com');
+
+        cy
+            .get('[type="password"]').type('admin12').should('have.value', 'admin12');
+        cy
+            .get('.btn').contains('login').should('be.visible').click();
+        cy
+            .get('form.ng-dirty > .alert').should('contain.text', 'Cannot find user')
+
+
+
+    })
+
+    // it.only('Invalid Credentials', () => {
+
+    //     cy
+    //         .visit('/login');
+    //     cy
+    //         .get('[type="text"]').type('purusotam405').should('have.value', 'purusotam405');
+
+    //     cy
+    //         .get('[type="password"]').type('admin12').should('have.value', 'admin12');
+    //     cy
+    //         .get('.btn').contains('login').should('be.visible').click();
+    //     cy
+    //         .get('form.ng-dirty.ng-touched.ng-valid').find('.alert alert-danger').contains('Email format is invalid')
+
+
+
+    // })
     it('Login Successful', () => {
 
         cy
@@ -44,6 +83,8 @@ describe('e2e Cypress Test', function () {
 
     it('Betting Validation', function () {
         // cy.get('h3').contains('Tottenham Hotspur VS Chelsea')
+
+
         cy
             .get('#matchId').type('ng-reflect-model', { force: true })
             .should('have.length', '1');
@@ -63,6 +104,28 @@ describe('e2e Cypress Test', function () {
             .get('.btn-success').click();
         // cy.get('.btn-danger').click();
     });
+
+    // it('invalid betting', () => {
+
+    //     cy
+    //         .get('#matchId').type('', { force: true })
+    //         .should('have.length', '1');
+    //     cy
+    //         .get('#cardInfo').type('2', { force: true })
+    //         .should('have.length', '1');
+    //     cy
+    //         .get('#homeScore').type('3', { force: true })
+    //         .should('have.length', '1');
+    //     cy
+    //         .get('#awayScore').type('4', { force: true })
+    //         .should('have.length', '1');
+    //     cy
+    //         .get('#amount').type('5', { force: true })
+    //         .should('have.length', '1');
+    //     cy
+    //         .get('.btn-success').click();
+    //     cy.get(':nth-child(2) > .help-block > span').contains('Card Info is required')
+    // })
 
     it('Re-login Successful', () => {
         cy
@@ -141,7 +204,7 @@ describe('e2e Cypress Test', function () {
         cy
             .get(':nth-child(6) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn')
+            .get('a > .btn').click();
         cy
             .get(':nth-child(7) > :nth-child(5) > .btn').click();
         cy

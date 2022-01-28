@@ -4,5 +4,6 @@
     "VideosFolder": "cypress/screenshots",
     "screenshotsFolder": "cypress/plugins/index.js",
     "fixturesFolder": "cypress/fixtures",
-    "baseUrl": "http://localhost:4200/login"
+    "baseUrl": "http://localhost:4200/login",
+    "experimentalFetchpolyFill": true
 }

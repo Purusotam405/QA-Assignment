@@ -4,8 +4,15 @@ describe('Home Page Test', () => {
     it('Homepage', () => {
         cy
             .server()
+        // cy
+        //     .route('GET', 'http://localhost:3000/', { fixture: 'Home.json' }).as('home')
+
         cy
-            .route('GET', 'http://localhost:3000/fixtures', { fixture: 'Home.json' }).as('home')
+            .route({
+                url: "/users/**", fixture: 'Home.json',
+                method: "GET",
+                // response: { status: "logged in", code: 200 }
+            })
         cy
             .visit('/login')
         cy
