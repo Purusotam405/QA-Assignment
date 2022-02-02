@@ -8,17 +8,17 @@ describe('e2e Cypress Test', function () {
         });
     });
 
-    it('Cannot Find User', () => {
+    it.only('Cannot Find User', () => {
 
         cy
             .visit('/login');
         cy
-            .get('[type="text"]').type('purusotam403@gmail.com').should('have.value', 'purusotam403@gmail.com');
+            .get('[data-cy=email]').type('purusotam403@gmail.com').should('have.value', 'purusotam403@gmail.com');
 
         cy
-            .get('[type="password"]').type('admin12').should('have.value', 'admin12');
+            .get('[data-cy=password]').type('admin12').should('have.value', 'admin12');
         cy
-            .get('.btn').contains('login').should('be.visible').click();
+            .get('[data-cy=button]').contains('login').should('be.visible').click();
         cy
             .get('form.ng-dirty > .alert').should('contain.text', 'Cannot find user')
 
@@ -54,23 +54,23 @@ describe('e2e Cypress Test', function () {
         cy
             .title().should('contains', '')
         cy
-            .get('a').contains('Register').should('exist');
+            .get('[data-cy=anchor]').contains('Register').should('exist');
         cy
             .contains('Email: admin@gmail.com').should('exist');
         cy
             .contains('password: 123456').should('exist');
         cy
-            .get('[type="text"]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
+            .get('[data-cy=email]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
         // cy
         //     .get('[type="text"]').type('this.admin.email').should('have.value', 'this.admin.email');
         //      expect(this.admin.email).to.equal('this.admin.email')
         cy
-            .get('[type="password"]').type('admin123').should('have.value', 'admin123');
+            .get('[data-cy=password]').type('admin123').should('have.value', 'admin123');
         // cy
         //     .get('[type="password"]').type('this.admin.password').should('have.value', this.admin.password);
         // expect(this.admin.password).to.equal(this.admin.password)
         cy
-            .get('.btn').contains('login').should('be.visible').click();
+            .get('[data-cy=button]').contains('login').should('be.visible').click();
         cy
             .get('Unable to authorize').should('not.exist')
         cy
@@ -84,25 +84,23 @@ describe('e2e Cypress Test', function () {
     it('Betting Validation', function () {
         // cy.get('h3').contains('Tottenham Hotspur VS Chelsea')
 
-
-        cy
-            .get('#matchId').type('ng-reflect-model', { force: true })
+        cy.get('[data-cy=match]').type('ng-reflect-model', { force: true })
             .should('have.length', '1');
         cy
-            .get('#cardInfo').type('2', { force: true })
+            .get('[data-cy=info]').type('2', { force: true })
             .should('have.length', '1');
         cy
-            .get('#homeScore').type('3', { force: true })
+            .get('[data-cy=home]').type('3', { force: true })
             .should('have.length', '1');
         cy
-            .get('#awayScore').type('4', { force: true })
+            .get('[data-cy=score]').type('4', { force: true })
             .should('have.length', '1');
         cy
-            .get('#amount').type('5', { force: true })
+            .get('[data-cy=amounts]').type('5', { force: true })
             .should('have.length', '1');
         cy
-            .get('.btn-success').click();
-        // cy.get('.btn-danger').click();
+            .get('[data-cy=submit]').click();
+        // cy.get('[data-cy="reset"]').click();
     });
 
     // it('invalid betting', () => {
@@ -133,11 +131,11 @@ describe('e2e Cypress Test', function () {
         cy
             .url().should('include', '/login');
         cy
-            .get('[type="text"]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
+            .get('[data-cy="email"]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
         cy
-            .get('[type="password"]').type('admin123').should('have.value', 'admin123');
+            .get('[data-cy="password"]').type('admin123').should('have.value', 'admin123');
         cy
-            .get('.btn').contains('login').should('be.visible').click();
+            .get('[data-cy="button"]').contains('login').should('be.visible').click();
         cy
             .contains('Booking').should('be.visible');
 
@@ -147,7 +145,7 @@ describe('e2e Cypress Test', function () {
             .get('.nav-link').click();
     });
 
-    it('Booking Validation', function () {
+    it('Booking Validation', () => {
         cy
             .contains('Booking').should('have.text', 'Booking').click();
         cy
@@ -157,26 +155,26 @@ describe('e2e Cypress Test', function () {
         cy
             .contains('Go back').should('be.visible');
         cy
-            .get('#sel1').select('Tottenham Hotspur VS Chelsea');
+            .get('[data-cy=select]').select('Tottenham Hotspur VS Chelsea');
         cy
-            .get('#email').type('purusotam405@gmail.com')
+            .get('[data-cy=selemail]').type('purusotam405@gmail.com')
         cy
-            .get('#cardInfo').type('2', { force: true })
+            .get('[data-cy=card]').type('2', { force: true })
         cy
-            .get('.btn-success').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
+            .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
         cy
-            .get('.btn-primary').click();
+            .get('[data-cy=close]').click();
     });
 
-    it('Match Details', function () {
+    it('Match Details', () => {
         cy
             .visit('/login')
         cy
             .url().should('include', '/login');
         cy
-            .get('[type="text"]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
+            .get('[data-cy="email"]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
         cy
-            .get('[type="password"]').type('admin123').should('have.value', 'admin123');
+            .get('[data-cy="password"]').type('admin123').should('have.value', 'admin123');
         cy
             .get('.btn').contains('login').should('be.visible').click();
         cy
@@ -184,43 +182,43 @@ describe('e2e Cypress Test', function () {
         cy
             .get('tbody.text-center > :nth-child(1) > :nth-child(5)').click();
         cy
-            .get('a > .btn').click();
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(2) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click();
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(3) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click()
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(4) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click()
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(5) > :nth-child(5)').click();
         cy
-            .get('a > .btn').click();
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(6) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click();
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(7) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click()
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(8) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click()
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(9) > :nth-child(5) > .btn').click();
         cy
-            .get('a > .btn').click()
+            .get('[data-cy=goback]').click();
         cy
             .get(':nth-child(10) > :nth-child(5) > .btn').click()
         cy
-            .get('a > .btn').click();
+            .get('[data-cy=goback]').click();
         cy
             .get('.nav-item > .btn').contains('Logout').should('be.visible').click();
     });

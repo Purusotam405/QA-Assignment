@@ -1,16 +1,10 @@
 <app-navbar></app-navbar>
 <div class="container" *ngIf="fixture">
-  <a routerLink="/fixtures/fixture"
-    ><button type="button" class="btn btn-sm btn-outline-primary">
+  <a routerLink="/fixtures/fixture"><button type="button" class="btn btn-sm btn-outline-primary" data-cy="goback">
       Go back
-    </button></a
-  >
-  <button
-    type="button"
-    *ngIf="accessControl()"
-    class="btn btn-sm btn-outline-danger float-right"
-    (click)="delete(fixture.id)"
-  >
+    </button></a>
+  <button type="button" *ngIf="accessControl()" class="btn btn-sm btn-outline-danger float-right"
+    (click)="delete(fixture.id)">
     Delete
   </button>
   <div class="d-flex justify-content-center">

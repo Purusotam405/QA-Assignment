@@ -16,11 +16,11 @@ describe('Home Page Test', () => {
         cy
             .visit('/login')
         cy
-            .get('[type="text"]').type('admin@gmail.com');
+            .get('[data-cy="email"]').type('admin@gmail.com');
         cy
-            .get('[type="password"]').type('$2a$10$Tb7rVyZOgdDP2znliX9FbuZhdXWyS/2K4PlikAaqtw4s3pXcZgXwi');
+            .get('[data-cy="password"]').type('$2a$10$Tb7rVyZOgdDP2znliX9FbuZhdXWyS/2K4PlikAaqtw4s3pXcZgXwi');
         cy
-            .get('.btn').click();
+            .get('[data-cy=button]').click();
 
         cy.get(".container ,#resources, a[href='/fixtures']").click();
 
