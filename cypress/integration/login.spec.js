@@ -32,12 +32,12 @@ describe('e2e Cypress Test', function () {
     //     cy
     //         .visit('/login');
     //     cy
-    //         .get('[type="text"]').type('purusotam403@gmail.com').should('have.value', 'purusotam403@gmail.com');
+    //         .get('[data-cy=email]').type('purusotam403@gmail.com').should('have.value', 'purusotam403@gmail.com');
 
     //     cy
-    //         .get('[type="password"]').type('admin12').should('have.value', 'admin12');
+    //         .get('[data-cy=password]').type('admin12').should('have.value', 'admin12');
     //     cy
-    //         .get('.btn').contains('login').should('be.visible').click();
+    //         .get('[data-cy=button]').contains('login').should('be.visible').click();
     //     cy
     //         .get('form.ng-dirty > .alert').should('contain.text', 'Cannot find user')
 
@@ -50,12 +50,12 @@ describe('e2e Cypress Test', function () {
     //     cy
     //         .visit('/login');
     //     cy
-    //         .get('[type="text"]').type('purusotam405').should('have.value', 'purusotam405');
+    //         .get('[data-cy=email]').type('purusotam405').should('have.value', 'purusotam405');
 
     //     cy
-    //         .get('[type="password"]').type('admin12').should('have.value', 'admin12');
+    //         .get('[data-cy=password]').type('admin12').should('have.value', 'admin12');
     //     cy
-    //         .get('.btn').contains('login').should('be.visible').click();
+    //         .get('[data-cy=button]').contains('login').should('be.visible').click();
     //     cy
     //         .get('form.ng-dirty.ng-touched.ng-valid').find('.alert alert-danger').contains('Email format is invalid')
 
@@ -73,7 +73,7 @@ describe('e2e Cypress Test', function () {
         cy
             .title().should('contains', '')
         cy
-            .get('a').contains('Register').should('exist')
+            .get('[data-cy=anchor]').contains('Register').should('exist')
         cy
             .contains('Email: admin@gmail.com').should('exist')
         cy
@@ -83,7 +83,7 @@ describe('e2e Cypress Test', function () {
         cy
             .get('[data-cy="email"]').type(this.credentials.email, { force: true }).should('have.value', this.credentials.email, { force: true })
         // cy
-        //     .get('[type="text"]').type(this.admin.email).should('have.value', this.admin.email);
+        //     .get('[data-cy=mail]').type(this.admin.email).should('have.value', this.admin.email);
         //      expect(this.admin.email).to.equal('this.admin.email')
 
         cy
@@ -100,6 +100,24 @@ describe('e2e Cypress Test', function () {
 
         cy
             .get(':nth-child(1) > :nth-child(4) > .btn').click()
+    })
+
+    it.only('login from http request method', () => {
+        cy.request({
+            method: 'GET',
+            url: '/login', // baseUrl is prepend to URL
+            // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
+            body: {
+                email: 'purusotam405@gmail.com',
+                password: 'admin123',
+
+
+            },
+        })
+
+        // to prove we have a session
+        cy.getCookie('cypress-session-cookie').should('exist')
+
     })
 
 

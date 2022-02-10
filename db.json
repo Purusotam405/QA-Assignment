@@ -31,6 +31,30 @@
       "lastName": "admin",
       "role": "User",
       "id": 4
+    },
+    {
+      "email": "purusotam403@gmail.com",
+      "password": "$2a$10$3tMbeFXoHzLpGvOivBKq4eZebamlHIBxYB/jb5G7vKqSAnyYGaKVu",
+      "firstName": "Purusotam",
+      "lastName": "Ghimiray",
+      "role": "User",
+      "id": 5
+    },
+    {
+      "email": "purusotam404@gmail.com",
+      "password": "$2a$10$zmKYRg9NZrzxCXW4f1mJkOeU5DhHlW65pz6sTqJ1RMXnuvblAgX2W",
+      "firstName": "Purusotam",
+      "lastName": "Ghimiray",
+      "role": "User",
+      "id": 6
+    },
+    {
+      "email": "purusotam401@gmail.com",
+      "password": "$2a$10$SYUQrYfVKyRcqpQSPWPwGe66I8Ebmya2c1TKcxHHcNuZsa3QEP.3W",
+      "firstName": "Purusotam",
+      "lastName": "Ghimiray",
+      "role": "User",
+      "id": 7
     }
   ],
   "fixtures": [
@@ -3032,6 +3056,42 @@
       "awayScore": 4,
       "amount": 5,
       "id": 213
+    },
+    {
+      "userId": "3",
+      "matchId": 1,
+      "cardInfo": 2,
+      "homeScore": 3,
+      "awayScore": 4,
+      "amount": 5,
+      "id": 214
+    },
+    {
+      "userId": "3",
+      "matchId": 1,
+      "cardInfo": 2,
+      "homeScore": 3,
+      "awayScore": 4,
+      "amount": 5,
+      "id": 215
+    },
+    {
+      "userId": "3",
+      "matchId": 1,
+      "cardInfo": 2,
+      "homeScore": 3,
+      "awayScore": 4,
+      "amount": 5,
+      "id": 216
+    },
+    {
+      "userId": "3",
+      "matchId": 1,
+      "cardInfo": 2,
+      "homeScore": 3,
+      "awayScore": 4,
+      "amount": 5,
+      "id": 217
     }
   ],
   "bookings": [

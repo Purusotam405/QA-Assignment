@@ -66,7 +66,7 @@
           </span>
         </span>
       </div>
-      <div class="alert alert-danger" *ngIf="errMsg">{{ errMsg }}</div>
+      <div class="alert alert-danger" data-cy="danger" *ngIf="errMsg">{{ errMsg }}</div>
       <button class="btn btn-success" data-cy="submit" type="submit">Place the bet</button>
       <button class="btn btn-danger" data-cy="reset" type="reset">Reset</button>
     </form>

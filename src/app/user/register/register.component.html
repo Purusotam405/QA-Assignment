@@ -3,78 +3,53 @@
     <div class="card-body">
       <form [formGroup]="userForm" (ngSubmit)="register()">
         <div class="alert alert-danger" *ngIf="message">{{ message }}</div>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="email"
-          placeholder="E-mail"
-        />
+        <input type="text" class="form-control" formControlName="email" data-cy="email" placeholder="E-mail" />
         <span class="help-block" *ngIf="userForm.get('email').errors">
-          <span
-            *ngIf="
+          <span *ngIf="
               userForm.get('email').errors.required &&
               (userForm.get('email').touched || userForm.get('email').dirty)
-            "
-          >
+            ">
             Email is required
           </span>
         </span>
         <br />
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-          placeholder="Password"
-        />
+        <input type="password" class="form-control" data-cy="password" formControlName="password"
+          placeholder="Password" />
         <span class="help-block" *ngIf="userForm.get('password').errors">
-          <span
-            *ngIf="
+          <span *ngIf="
               userForm.get('password').errors.required &&
               (userForm.get('password').touched ||
                 userForm.get('password').dirty)
-            "
-          >
+            ">
             Password is required
           </span>
         </span>
         <br />
-        <input
-          type="text"
-          class="form-control"
-          formControlName="firstName"
-          placeholder="First Name"
-        />
+        <input type="text" class="form-control" data-cy="First name" formControlName="firstName"
+          placeholder="First Name" />
         <span class="help-block" *ngIf="userForm.get('firstName').errors">
-          <span
-            *ngIf="
+          <span *ngIf="
               userForm.get('firstName').errors.required &&
               (userForm.get('firstName').touched ||
                 userForm.get('firstName').dirty)
-            "
-          >
+            ">
             First Name is required
           </span>
         </span>
         <br />
-        <input
-          type="text"
-          class="form-control"
-          formControlName="lastName"
-          placeholder="Last Name"
-        />
+        <input type="text" class="form-control" data-cy="last name" formControlName="lastName"
+          placeholder="Last Name" />
         <span class="help-block" *ngIf="userForm.get('lastName').errors">
-          <span
-            *ngIf="
+          <span *ngIf="
               userForm.get('lastName').errors.required &&
               (userForm.get('lastName').touched ||
                 userForm.get('lastName').dirty)
-            "
-          >
+            ">
             Last Name is required
           </span>
         </span>
         <br />
-        <button class="btn btn-primary btn-block login-button" type="submit">
+        <button class="btn btn-primary btn-block login-button" type="submit" data-cy="register">
           register
         </button>
 

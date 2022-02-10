@@ -1,18 +1,22 @@
 /// <reference types="Cypress" />
 
 describe('Home Page Test', () => {
-    it('Homepage', () => {
+    it.only('Homepage', () => {
         cy
             .server()
         // cy
         //     .route('GET', 'http://localhost:3000/', { fixture: 'Home.json' }).as('home')
 
         cy
-            .route({
-                url: "/users/**", fixture: 'Home.json',
-                method: "GET",
-                // response: { status: "logged in", code: 200 }
-            })
+            .route(
+                {
+                    url: '/fixtures',
+                    method: 'GET'
+                },
+                {
+                    fixture: 'home.json'
+                }
+            ).as('home')
         cy
             .visit('/login')
         cy
@@ -25,6 +29,38 @@ describe('Home Page Test', () => {
         cy.get(".container ,#resources, a[href='/fixtures']").click();
 
 
+    })
+
+
+
+    it('stubbing response', () => {
+
+        // cy.get('[data-cy=email]').type('purusotam405@gmail.com')
+        // cy.get('[data-cy=password]').type('admin123')
+
+        cy.fixture('home').then((home) => {
+            home.emal = 'pranesh403@gmail.com'
+            home.password = 'admin234'
+            cy.get('[data-cy=button]').click()
+
+        })
+        cy.server()
+        cy.route('POST', '**/fixtures', home)
+        cy.visit('/login')
+    })
+    it('error', () => {
+        cy.visit('/fixtures')
+        cy.get('[data-cy=email]').type('purusotam405@gmail.com')
+        cy.get('[data-cy=password]').type('admin123')
+        cy.get('[data-cy=button]').click()
+        cy.server()
+        cy.route({
+            method: 'POST',
+            url: '**/login',
+            response: {
+                redirect: '/error'
+            },
+        })
     })
 
 

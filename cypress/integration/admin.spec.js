@@ -8,7 +8,7 @@ describe('e2e Cypress Test', function () {
         });
     });
 
-    it.only('Cannot Find User', () => {
+    it('Cannot Find User', () => {
 
         cy
             .visit('/login');
@@ -20,7 +20,7 @@ describe('e2e Cypress Test', function () {
         cy
             .get('[data-cy=button]').contains('login').should('be.visible').click();
         cy
-            .get('form.ng-dirty > .alert').should('contain.text', 'Cannot find user')
+            .get('[data-cy=alert]').should('contain.text', 'Incorrect password')
 
 
 
@@ -54,7 +54,7 @@ describe('e2e Cypress Test', function () {
         cy
             .title().should('contains', '')
         cy
-            .get('[data-cy=anchor]').contains('Register').should('exist');
+            .get('[data-cy=register]').contains('Register').should('exist');
         cy
             .contains('Email: admin@gmail.com').should('exist');
         cy

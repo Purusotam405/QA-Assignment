@@ -6,7 +6,7 @@
         password: 123456
       </div>
       <form [formGroup]="userForm" (ngSubmit)="login()">
-        <div *ngIf="response" class="alert alert-danger">{{ response }}</div>
+        <div *ngIf="response" class="alert alert-danger" data-cy=alert>{{ response }}</div>
         <input type="text" class="form-control" data-cy="email" formControlName="email" placeholder="Email" />
         <br />
         <input type="password" class="form-control" data-cy="password" formControlName="password"
@@ -15,8 +15,8 @@
         <button class="btn btn-primary btn-block login-button" data-cy="button" type="submit">
           login
         </button>
-        <div class="register float-right" dat-cy="register">
-          <a routerLink="/user/register" data-cy="anchor">Register</a>
+        <div class="register float-right">
+          <a routerLink="/user/register" data-cy="register">Register</a>
         </div>
       </form>
     </div>
