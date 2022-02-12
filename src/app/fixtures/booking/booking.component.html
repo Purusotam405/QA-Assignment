@@ -17,8 +17,8 @@
       <div class="form-group">
         <label for="email">Email: </label>
         <input type="text" id="email" data-cy="selemail" class="form-control" formControlName="email" />
-        <span class="help-block" *ngIf="bookingForm.get('email').errors">
-          <span *ngIf="
+        <span class="help-block" data-cy="emailinfo" *ngIf="bookingForm.get('email').errors">
+          <span data-cy="emailreq" *ngIf="
               bookingForm.get('email').errors.required &&
               (bookingForm.get('email').touched ||
                 bookingForm.get('email').dirty)
@@ -30,8 +30,8 @@
       <div class="form-group">
         <label for="cardInfo">Card Info: </label>
         <input type="number" id="cardInfo" class="form-control" data-cy="card" formControlName="cardInfo" />
-        <span class="help-block" *ngIf="bookingForm.get('cardInfo').errors">
-          <span *ngIf="
+        <span class="help-block" data-cy="CardInfo" *ngIf="bookingForm.get('cardInfo').errors">
+          <span data-cy="cardreq" *ngIf="
               bookingForm.get('cardInfo').errors.required &&
               (bookingForm.get('cardInfo').touched ||
                 bookingForm.get('cardInfo').dirty)
@@ -40,7 +40,7 @@
           </span>
         </span>
       </div>
-      <div class="alert alert-danger" *ngIf="errMsg">{{ errMsg }}</div>
+      <div class="alert alert-danger" data-cy="error" *ngIf="errMsg">{{ errMsg }}</div>
       <button class="btn btn-success" data-cy="book" type="button" data-toggle="modal" (click)="clicked()"
         data-target="#exampleModal">
         Book the ticket

@@ -24,7 +24,7 @@ export class BookingComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.data.getData().subscribe(data => {

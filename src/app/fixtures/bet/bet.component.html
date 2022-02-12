@@ -11,14 +11,15 @@
     <form [formGroup]="bettingForm" (ngSubmit)="submit()">
       <div class="form-group">
         <label for="matchId">Match ID: </label>
-        <input type="number" id="matchId" readonly class="form-control" data-cy="match" formControlName="matchId"
-          [ngModel]="fixture.id" />
+        <input type="number" id="matchId" data-cy="matchid" readonly class="form-control" data-cy="match"
+          formControlName="matchId" [ngModel]="fixture.id" />
       </div>
       <div class="form-group">
         <label for="cardInfo">Card Info: </label>
-        <input type="number" id="cardInfo" data-cy="info" class="form-control" formControlName="cardInfo" />
+        <input type="number" id="cardInfo" data-cy="cardinfo1" data-cy="info" class="form-control"
+          formControlName="cardInfo" />
         <span class="help-block" *ngIf="bettingForm.get('cardInfo').errors">
-          <span *ngIf="
+          <span data-cy="numberreq" *ngIf="
               bettingForm.get('cardInfo').errors.required &&
               (bettingForm.get('cardInfo').touched ||
                 bettingForm.get('cardInfo').dirty)
@@ -31,7 +32,7 @@
         <label for="homeScore">homeScore: </label>
         <input type="number" id="homeScore" data-cy="home" class="form-control" formControlName="homeScore" />
         <span class="help-block" *ngIf="bettingForm.get('homeScore').errors">
-          <span *ngIf="
+          <span data-cy="homescore" *ngIf="
               bettingForm.get('homeScore').errors.required &&
               (bettingForm.get('homeScore').touched ||
                 bettingForm.get('homeScore').dirty)
@@ -44,7 +45,7 @@
         <label for="awayScore">Away Score: </label>
         <input type="number" id="awayScore" data-cy="score" class="form-control" formControlName="awayScore" />
         <span class="help-block" *ngIf="bettingForm.get('homeScore').errors">
-          <span *ngIf="
+          <span data-cy="awayscore" *ngIf="
               bettingForm.get('awayScore').errors.required &&
               (bettingForm.get('awayScore').touched ||
                 bettingForm.get('awayScore').dirty)
@@ -57,7 +58,7 @@
         <label for="amount">Amount: </label>
         <input type="number" id="amount" data-cy="amounts" class="form-control" formControlName="amount" />
         <span class="help-block" *ngIf="bettingForm.get('amount').errors">
-          <span *ngIf="
+          <span data-cy="amountscore" *ngIf="
               bettingForm.get('amount').errors.required &&
               (bettingForm.get('amount').touched ||
                 bettingForm.get('amount').dirty)
