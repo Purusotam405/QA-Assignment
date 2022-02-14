@@ -105,13 +105,12 @@ describe('e2e Cypress Test', function () {
     it.only('login from http request method', () => {
         cy.request({
             method: 'GET',
-            url: '/login', // baseUrl is prepend to URL
+            url: '/login',
+            // baseUrl is prepend to URL
             // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
             body: {
                 email: 'purusotam405@gmail.com',
                 password: 'admin123',
-
-
             },
         })
 

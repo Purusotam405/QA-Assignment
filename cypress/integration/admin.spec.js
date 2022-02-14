@@ -98,9 +98,12 @@ describe('e2e Cypress Test', function () {
             .get('[data-cy=amounts]').type('1', { force: true })
             .should('have.length', '1');
 
-        cy.get('[data-cy=homescore]').should('have.text', ' Home Score is required ')
-        cy.get('[data-cy=numberreq]').should('have.text', ' Card Info is required ')
-        cy.get('[data-cy=awayscore]').should('have.text', ' Away Score is required ')
+        cy
+            .get('[data-cy=homescore]').should('have.text', ' Home Score is required ')
+        cy
+            .get('[data-cy=numberreq]').should('have.text', ' Card Info is required ')
+        cy
+            .get('[data-cy=awayscore]').should('have.text', ' Away Score is required ')
         // cy.get('[data-cy=amountscore]').should('have.text', ' Amount is required ')
 
 
@@ -174,28 +177,6 @@ describe('e2e Cypress Test', function () {
             .get('[data-cy=bookings]').click();
     });
 
-    it('Invalid Booking', () => {
-        cy
-            .get('[data-cy=select]').select('');
-
-        cy
-            .get('[data-cy=selemail]').type('purusotam').should('have.value', 'purusotam')
-        // cy
-        //     .get('[data-cy=emailinfo]').should('have.text', 'Email is required')
-        cy
-            .get('[data-cy=card]').type('1', { force: true })
-        // cy
-        //     .get('[data-cy=inforeq]').should('have.text', 'Card Info is required')
-        cy
-            .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
-        cy.get('[data-cy=error]').should('have.text', 'invalid Form')
-    })
-
-
-
-
-
-
 
 
     it('Booking Validation', () => {
@@ -217,11 +198,26 @@ describe('e2e Cypress Test', function () {
             .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
     })
 
+    // it('Invalid Booking', () => {
+    //     cy
+    //         .get('[data-cy=select]').select('', { force: true });
+
+    //     cy
+    //         .get('[data-cy=selemail]').type('purusotam', { force: true })
+
+    //     cy
+    //         .get('[data-cy=card]').type('1', { force: true })
+    //     // cy
+    //     //     .get('[data-cy=inforeq]').should('have.text', 'Card Info is required')
+    //     cy
+    //         .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
+    //     cy
+    //         .get('[data-cy=error]').should('have.text', 'invalid Form')
+    // })
+
     it('Booking Summary', () => {
         cy
             .get('[data-cy=summary]').should('have.text', ' Booking Summary ')
-        cy
-            .get('h3').should('have.text', 'Tottenham Hotspur Vs Chelsea')
         cy
             .get('[data-cy=close]').should('be.visible', { force: true }).click()
         cy
@@ -285,10 +281,12 @@ describe('e2e Cypress Test', function () {
 
     });
     it('Goback and Logout', () => {
-        cy
-            .get('[data-cy=goback]').click();
+        // cy
+        //     .get('[data-cy=goback]').click();
         cy
             .get('[data-cy=logout]').contains('Logout').should('be.visible').click();
+
+
     })
 
 });

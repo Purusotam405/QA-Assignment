@@ -3,21 +3,6 @@
 describe('Home Page Test', () => {
     it.only('Homepage', () => {
         cy
-            .server()
-        // cy
-        //     .route('GET', 'http://localhost:3000/', { fixture: 'Home.json' }).as('home')
-
-        cy
-            .route(
-                {
-                    url: '/fixtures',
-                    method: 'GET'
-                },
-                {
-                    fixture: 'home.json'
-                }
-            ).as('home')
-        cy
             .visit('/login')
         cy
             .get('[data-cy="email"]').type('admin@gmail.com');
@@ -27,6 +12,21 @@ describe('Home Page Test', () => {
             .get('[data-cy=button]').click();
 
         cy.get(".container ,#resources, a[href='/fixtures']").click();
+        cy
+            .server()
+
+
+        cy
+            .route(
+                {
+                    url: '/fixtures/**',
+                    method: 'POST'
+                },
+                {
+                    fixture: 'home.json'
+                }
+            ).as('home')
+
 
 
     })
@@ -39,7 +39,7 @@ describe('Home Page Test', () => {
         // cy.get('[data-cy=password]').type('admin123')
 
         cy.fixture('home').then((home) => {
-            home.emal = 'pranesh403@gmail.com'
+            home.email = 'pranesh403@gmail.com'
             home.password = 'admin234'
             cy.get('[data-cy=button]').click()
 
