@@ -5,5 +5,6 @@
     "screenshotsFolder": "cypress/plugins/index.js",
     "fixturesFolder": "cypress/fixtures",
     "baseUrl": "http://localhost:4200/login",
-    "experimentalFetchpolyFill": true
+    "experimentalFetchpolyFill": true,
+    "ignoreTestFiles": "*/examples/**"
 }

@@ -23,19 +23,12 @@
         </td>
         <td>{{ fixture.away }}</td>
         <td>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-primary"
-            (click)="bet(fixture.id)"
-          >
+          <button type="button" class="btn btn-sm btn-outline-primary" data-cy="Bet" (click)="bet(fixture.id)">
             Bet
           </button>
         </td>
         <td>
-          <button
-            class="btn btn-sm btn-outline-primary"
-            (click)="onClick(fixture.id)"
-          >
+          <button class="btn btn-sm btn-outline-primary" data-cy="match-details" (click)="onClick(fixture.id)">
             Match Detail
           </button>
         </td>

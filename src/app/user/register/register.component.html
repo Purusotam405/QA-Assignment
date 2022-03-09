@@ -2,10 +2,10 @@
   <div class="card text-center mx-auto" style="width: 500px;">
     <div class="card-body">
       <form [formGroup]="userForm" (ngSubmit)="register()">
-        <div class="alert alert-danger" *ngIf="message">{{ message }}</div>
+        <div class="alert alert-danger" data-cy="emptyfields" *ngIf="message">{{ message }}</div>
         <input type="text" class="form-control" formControlName="email" data-cy="email" placeholder="E-mail" />
         <span class="help-block" *ngIf="userForm.get('email').errors">
-          <span *ngIf="
+          <span data-cy="emailreq" *ngIf="
               userForm.get('email').errors.required &&
               (userForm.get('email').touched || userForm.get('email').dirty)
             ">
@@ -16,7 +16,7 @@
         <input type="password" class="form-control" data-cy="password" formControlName="password"
           placeholder="Password" />
         <span class="help-block" *ngIf="userForm.get('password').errors">
-          <span *ngIf="
+          <span data-cy="passwordreq" *ngIf="
               userForm.get('password').errors.required &&
               (userForm.get('password').touched ||
                 userForm.get('password').dirty)
@@ -28,7 +28,7 @@
         <input type="text" class="form-control" data-cy="First name" formControlName="firstName"
           placeholder="First Name" />
         <span class="help-block" *ngIf="userForm.get('firstName').errors">
-          <span *ngIf="
+          <span data-cy="firstnamereq" *ngIf="
               userForm.get('firstName').errors.required &&
               (userForm.get('firstName').touched ||
                 userForm.get('firstName').dirty)
@@ -40,7 +40,7 @@
         <input type="text" class="form-control" data-cy="last name" formControlName="lastName"
           placeholder="Last Name" />
         <span class="help-block" *ngIf="userForm.get('lastName').errors">
-          <span *ngIf="
+          <span data-cy="lastnamereq" *ngIf="
               userForm.get('lastName').errors.required &&
               (userForm.get('lastName').touched ||
                 userForm.get('lastName').dirty)
@@ -53,7 +53,7 @@
           register
         </button>
 
-        <a routerLink="/login" class="float-right">Login</a>
+        <a routerLink="/login" class="float-right" data-cy="login">Login</a>
       </form>
     </div>
   </div>

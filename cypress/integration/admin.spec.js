@@ -45,57 +45,63 @@ describe('e2e Cypress Test', function () {
 
     // })
     it('Login Successful', () => {
+        cy.loginsuccess()
 
-        cy
-            .visit('/login');
-        cy
-            .url().should('include', '/login');
-        cy
-            .location('protocol').should('eq', 'http:')
-        cy
-            .title().should('contains', '')
-        cy
-            .get('[data-cy=register]').contains('Register').should('exist');
-        cy
-            .contains('Email: admin@gmail.com').should('exist');
-        cy
-            .contains('password: 123456').should('exist');
-        cy
-            .get('[data-cy=email]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
+
         // cy
-        //     .get('[type="text"]').type('this.admin.email').should('have.value', 'this.admin.email');
-        //      expect(this.admin.email).to.equal('this.admin.email')
-        cy
-            .get('[data-cy=password]').type('admin123').should('have.value', 'admin123');
+        //     .visit('/login');
         // cy
-        //     .get('[type="password"]').type('this.admin.password').should('have.value', this.admin.password);
-        // expect(this.admin.password).to.equal(this.admin.password)
-        cy
-            .get('[data-cy=button]').contains('login').should('be.visible').click();
-        cy
-            .get('Unable to authorize').should('not.exist')
-        cy
-            .url().should('include', '/fixture');
-        cy
-            .get(':nth-child(1) > :nth-child(4) > .btn').click();
+        //     .url().should('include', '/login');
+        // cy
+        //     .location('protocol').should('eq', 'http:')
+
+        // cy
+        //     .title().should('contains', '')
+        // cy
+        //     .get('[data-cy=register]').contains('Register').should('exist');
+        // cy
+        //     .contains('Email: admin@gmail.com').should('exist');
+        // cy
+        //     .contains('password: 123456').should('exist');
+        // cy
+        //     .get('[data-cy=email]').type('purusotam405@gmail.com').should('have.value', 'purusotam405@gmail.com');
+        // // cy
+        // //     .get('[type="text"]').type('this.admin.email').should('have.value', 'this.admin.email');
+        // //      expect(this.admin.email).to.equal('this.admin.email')
+        // cy
+        //     .get('[data-cy=password]').type('admin123').should('have.value', 'admin123');
+        // // cy
+        // //     .get('[type="password"]').type('this.admin.password').should('have.value', this.admin.password);
+        // // expect(this.admin.password).to.equal(this.admin.password)
+        // cy
+        //     .get('[data-cy=button]').contains('login').should('be.visible').click();
+        // cy
+        //     .get('Unable to authorize').should('not.exist')
+        // cy
+        //     .url().should('include', '/fixture');
+        // cy
+        //     .get(':nth-child(1) > :nth-child(4) > .btn').click();
 
 
     });
 
     it('Invalid Betting', () => {
-        cy.get('[data-cy=match]').type('hi', { force: true })
+        cy
+            .get(':nth-child(1) > :nth-child(4) > [data-cy=Bet]').click();
+        cy
+            .get('[data-cy=match]').type('.', { force: true })
             .should('have.length', '1');
         cy
-            .get('[data-cy=info]').type('talk', { force: true })
+            .get('[data-cy=info]').type('.', { force: true })
             .should('have.length', '1');
         cy
-            .get('[data-cy=home]').type('hey', { force: true })
+            .get('[data-cy=home]').type('.', { force: true })
             .should('have.length', '1');
         cy
-            .get('[data-cy=score]').type('hello', { force: true })
+            .get('[data-cy=score]').type('.', { force: true })
             .should('have.length', '1');
         cy
-            .get('[data-cy=amounts]').type('1', { force: true })
+            .get('[data-cy=amounts]').type('.', { force: true })
             .should('have.length', '1');
 
         cy
@@ -114,6 +120,8 @@ describe('e2e Cypress Test', function () {
     })
 
     it('Betting Validation', function () {
+        // cy
+        //     .get(':nth-child(1) > :nth-child(4) > [data-cy=Bet]').click();
         // cy.get('h3').contains('Tottenham Hotspur VS Chelsea')
 
         cy.get('[data-cy=match]').type('ng-reflect-model', { force: true })
@@ -181,6 +189,10 @@ describe('e2e Cypress Test', function () {
 
     it('Booking Validation', () => {
         cy
+            .url().should('include', '/booking')
+        cy
+            .location('protocol').should('eq', 'http:')
+        cy
             .contains('Booking').should('have.text', 'Booking').click();
         cy
             .contains('Football Fix').should('be.visible');
@@ -198,22 +210,22 @@ describe('e2e Cypress Test', function () {
             .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
     })
 
-    // it('Invalid Booking', () => {
-    //     cy
-    //         .get('[data-cy=select]').select('', { force: true });
+    it('Invalid Booking', () => {
+        cy
+            .get('[data-cy=select]').type('.', { force: true });
 
-    //     cy
-    //         .get('[data-cy=selemail]').type('purusotam', { force: true })
+        cy
+            .get('[data-cy=selemail]').type('.', { force: true })
 
-    //     cy
-    //         .get('[data-cy=card]').type('1', { force: true })
-    //     // cy
-    //     //     .get('[data-cy=inforeq]').should('have.text', 'Card Info is required')
-    //     cy
-    //         .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
-    //     cy
-    //         .get('[data-cy=error]').should('have.text', 'invalid Form')
-    // })
+        cy
+            .get('[data-cy=card]').type('.', { force: true })
+        // cy
+        //     .get('[data-cy=inforeq]').should('have.text', 'Card Info is required')
+        cy
+            .get('[data-cy=book]').contains('Book the ticket').should('have.text', ' Book the ticket ').click();
+        cy
+            .get('[data-cy=error]').should('have.text', 'invalid Form')
+    })
 
     it('Booking Summary', () => {
         cy
