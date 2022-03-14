@@ -1,11 +1,4 @@
-[
-  {
-    "email": "admin@gmail.com",
-    "password": "$2a$10$Tb7rVyZOgdDP2znliX9FbuZhdXWyS/2K4PlikAaqtw4s3pXcZgXwi",
-    "firstName": "admin",
-    "lastName": "admin",
-    "role": "Admin",
-    "id": 1,
-    "adminUrl": "http://localhost:4200"
-  }
-]
+{
+  "email": "purusotam405@gmail.com",
+  "password": "admin123"
+}

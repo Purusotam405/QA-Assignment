@@ -4770,6 +4770,24 @@
       "awayScore": 3,
       "amount": 4,
       "id": 399
+    },
+    {
+      "userId": "3",
+      "matchId": 1,
+      "cardInfo": 2,
+      "homeScore": 3,
+      "awayScore": 4,
+      "amount": 5,
+      "id": 400
+    },
+    {
+      "userId": "3",
+      "matchId": 1,
+      "cardInfo": 1,
+      "homeScore": 2,
+      "awayScore": 3,
+      "amount": 4,
+      "id": 401
     }
   ],
   "bookings": [

@@ -18,18 +18,19 @@
 //     })
 
 describe('Access fixture data with this keyword', function () {
-    // beforeEach(function () {
-    //     cy.fixture('credentials').as('credential')
 
+    // it.only('Login with valid credentials with this keyword', function () {
+    //     cy.fixture('adminLogin.json').then((user) => {
+    //         user.email = 'Jane@gmail.com'
+    //         // work with the users array here
+    //         cy.server({ force404: true })
+
+    //         cy.route('GET', 'http://localhost:3000/users', user)
+    //     })
+
+    //     cy.visit('/login')
+    //     // cy.get('[data-cy=email]').should('include', 'Jane@gmail.com')
     // })
-    // it('Login with valid credentials with this keyword', function () {
-    //     cy.visit('/login');
-    //     cy.get('[data-cy=email]').type(this.credential.email)
-    //     cy.get('[data-cy=password]').type(this.credential.password)
-    //     cy.get('[data-cy=button]').click();
-
-    // })
-
 
     it('Intercept method', () => {
         cy.visit('/login')
@@ -51,12 +52,7 @@ describe('Access fixture data with this keyword', function () {
         })
 
     })
-    // it('API-POST', () => {
-    //     cy.request("POST", 'http://localhost:3000/users').then((response) => {
 
-    //     })
-
-    // })
 
 })
 
