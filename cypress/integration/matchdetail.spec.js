@@ -1,22 +1,23 @@
+import BasePage from './pageobjectmodel/basepage';
+import MatchDetails from './pageobjectmodel/MatchDetails/MatchDetails';
+
 /// <reference types="Cypress" /> 
 
 describe('End to end Test for Match Details', function () {
-    this.beforeEach(function () {
-        cy.loginsuccess()
+    beforeEach(function () {
+        BasePage.setLargeDesktopViewport()
+
     })
     it('Display of Match details', function () {
-        cy.get(':nth-child(1) > :nth-child(5) > [data-cy=match-details]')
-            .should('be.enabled').and('have.text', ' Match Detail ').click()
+        cy.loginsuccess()
+        MatchDetails.DisplayMatchDetails()
 
     })
     it('Test on Goback button to redirect to homepage', function () {
-        cy.get(':nth-child(1) > :nth-child(5) > [data-cy=match-details]')
-            .should('be.enabled').and('have.text', ' Match Detail ').click()
-        cy.get('[data-cy=goback]').should('be.visible').and('have.text', ' Go back ').click()
-
+        MatchDetails.GoBackToHomePage()
 
     })
-    it.only('Test for successfull Logout', function () {
-        cy.get('[data-cy=logout]').should('be.enabled').and('have.text', ' Logout ').click()
+    it('Test for successfull Logout', function () {
+        MatchDetails.SuccessfulLogout()
     })
 })

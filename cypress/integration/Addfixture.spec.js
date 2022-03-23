@@ -1,17 +1,19 @@
 ///<reference types="Cypress" />
 
-describe('Login from fixrure data', () => {
+describe('Login from fixture data', () => {
     beforeEach(() => {
-        cy.server()
-        cy.fixture("adminLogin.json").as('data')
-            .then((data) => {
-                cy.route('GET', 'adminLogin.json', data)
-            })
+        cy.visit('/login')
+
     })
+
     it('Fixture Login', () => {
-        cy.get('[data-cy=email]').type(JSON.stringify(this.data.email))
-        cy.get('[data-cy=password').type(JSON.stringify(this.data.password))
-        cy.get('[data-cy=button]').click()
+        cy.fixture('adminLogin').then(data => {
+            cy.get('[data-cy=email]').type(data.email)
+            cy.get('[data-cy=password').type(data.password)
+            cy.get('[data-cy=button]').click()
+
+        })
+
 
     })
 

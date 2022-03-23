@@ -212,13 +212,13 @@ describe('e2e Cypress Test', function () {
 
     it('Invalid Booking', () => {
         cy
-            .get('[data-cy=select]').type('.', { force: true });
+            .get('[data-cy=select]').select('')
 
         cy
-            .get('[data-cy=selemail]').type('.', { force: true })
+            .get('[data-cy=selemail]').click()
 
         cy
-            .get('[data-cy=card]').type('.', { force: true })
+            .get('[data-cy=card]').click()
         // cy
         //     .get('[data-cy=inforeq]').should('have.text', 'Card Info is required')
         cy
