@@ -1,9 +1,12 @@
 {
-    "intergrationFolder": "cypress/integration",
-    "supportFile": "cypress/support/index.js",
-    "VideosFolder": "cypress/screenshots",
-    "fixturesFolder": "cypress/fixtures",
-    "baseUrl": "http://localhost:4200/login",
-    "experimentalFetchpolyFill": true,
-    "ignoreTestFiles": "*/examples/**"
-}
+  "baseUrl": "http://localhost:4200/login",
+  "experimentalFetchpolyFill": true,
+  "video": false,
+  "screenshot":true,
+  "defaultCommandTimeout": 5000,
+  "pageLoadTimeout": 10000,
+  "waitForAnimations": true,
+  "projectId": "amv8z9",
+  "viewportwidth":1000,
+  "viewportheight":660
+  }

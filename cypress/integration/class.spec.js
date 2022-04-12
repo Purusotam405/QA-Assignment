@@ -1,26 +1,20 @@
 class BasePage {
-    static loadHomePage() {
-        cy.visit('/login')
-    }
-    static wait(number) {
-        cy.wait(number)
-    }
-
+	static loadHomePage() {
+		cy.visit("/login")
+	}
+	static wait(number) {
+		cy.wait(number)
+	}
 }
 class HomePage extends BasePage {
-    static login() {
-        cy.loginsuccess()
-        // cy.get('[data-cy=email]').type('purusotam405@gmail.com')
-        // cy.get('[data-cy=password]').type('admin123')
-        // cy.get('[data-cy=button]').click()
-    }
+	static login() {
+		cy.loginsuccess()
+	}
 }
-describe('Abstraction with a class', function () {
-    it('Should login to HomePage', function () {
-        HomePage.loadHomePage()
-        HomePage.wait(2000)
-        HomePage.login()
-
-
-    })
+describe("Abstraction with a class", function () {
+	it("Should login to HomePage", function () {
+		HomePage.loadHomePage()
+		HomePage.wait(1000)
+		HomePage.login()
+	})
 })

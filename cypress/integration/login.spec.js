@@ -1,58 +1,55 @@
-import Login from './pageobjectmodel/Login/login';
-import BasePage from './pageobjectmodel/basepage';
+import Login from "./pageobjectmodel/Login/login"
+import BasePage from "./pageobjectmodel/basepage"
 
 /// <reference types="Cypress" />
 
-describe('e2e Cypress Test', function () {
-    beforeEach(() => {
-        cy.visit('/login');
-        BasePage.setDesktop()
-    })
+describe("e2e Cypress Test", function () {
+	beforeEach(() => {
+		cy.visit("/login")
+		BasePage.setDesktop()
+	})
 
-    it('Login loaded Successfuly', function () {
-        Login.PageLoad()
-    })
+	it("Login loaded Successfuly", function () {
+		Login.PageLoad()
+	})
 
-    it('User prompted to homepage with valid credentials', function () {
-        Login.HomePage()
-    })
+	it("User prompted to homepage with valid credentials", function () {
+		Login.HomePage()
+	})
 
-    it('Correct Email and Wrong Password', function () {
+	it("Correct Email and Wrong Password", function () {
+		Login.CorrectEmailWrongPassword()
+	})
 
-        Login.CorrectEmailWrongPassword()
-    })
+	it("Wrong Email and Correct Password", function () {
+		Login.WrongEmailCorrectPassword()
+	})
 
-    it('Wrong Email and Correct Password', function () {
-        Login.WrongEmailCorrectPassword()
-    })
+	it("Invalid Email Format with Correct Password", function () {
+		Login.InvalidEmailFormat()
+	})
 
-    it('Invalid Email Format with Correct Password', function () {
+	it(" Entering only numbers as email address with Correct Password", function () {
+		Login.NumberAsEmail()
+	})
 
-        Login.InvalidEmailFormat()
-    })
+	it("Login without Email address but with Correct Password", function () {
+		Login.LoginWithoutEmail()
+	})
 
-    it(' Entering only numbers as email address with Correct Password', function () {
-        Login.NumberAsEmail()
-    })
+	it("Login with Valid Email Address but without Password", function () {
+		Login.CorrectEmailWrongPassword()
+	})
 
-    it('Login without Email address but with Correct Password', function () {
-        Login.LoginWithoutEmail()
-    })
+	it("Login without Email Address and without Password", function () {
+		Login.WithoutEmailAndPassword()
+	})
 
-    it('Login with Valid Email Address but without Password', function () {
-        Login.CorrectEmailWrongPassword()
-    })
+	it("test display of register page", () => {
+		Login.DisplyRegisterPage()
+	})
 
-    it('Login without Email Address and without Password', function () {
-        Login.WithoutEmailAndPassword()
-    })
-
-    it('test display of register page', () => {
-        Login.DisplyRegisterPage()
-    })
-
-    it('test display of register page from login page', () => {
-        Login.RegisterPageFromLogin()
-
-    })
+	it("test display of register page from login page", () => {
+		Login.RegisterPageFromLogin()
+	})
 })

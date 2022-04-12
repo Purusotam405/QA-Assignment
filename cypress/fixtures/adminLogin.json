@@ -1,5 +1,9 @@
 {
   "email": "purusotam405@gmail.com",
   "password": "admin123",
+  "wrongemail": "purusotam400@gmail.com",
+  "Invalidemail": "123",
+  "wrongpassword": "ad123",
+  "invalidpassword": "a12",
   "adminUrl": "http://localhost:4200/login"
 }
