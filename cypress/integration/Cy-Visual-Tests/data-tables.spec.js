@@ -2,13 +2,13 @@ describe("Visual Regression - Data-tables", () => {
 	before(function () {
 		cy.fixture("adminLogin.json").then((data) => {
 			cy.visit(data.adminUrl)
-			cy.get("[data-cy=email]").type(data.email)
-			cy.get("[data-cy=password]").type(data.password)
-			cy.get("[data-cy=button]").click()
+			cy.datacy("email").type(data.email)
+			cy.datacy("password").type(data.password)
+			cy.datacy("button").click()
 		})
 	})
 	it("Should load Betting Button", () => {
-		cy.get(":nth-child(1) > :nth-child(4) > [data-cy=Bet]").click()
+		cy.datacy("Bet").first().click({ multiple: true }, { force: true })
 	})
 	it("Data-table Snapshot", () => {
 		cy.matchImageSnapshot({

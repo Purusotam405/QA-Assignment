@@ -2,72 +2,47 @@ import BasePage from "../basepage"
 
 export default class Betting extends BasePage {
 	static Betbutton() {
-		cy.get(":nth-child(1) > :nth-child(4) > [data-cy=Bet]").click()
+		cy.datacy("Bet").first().click()
 	}
 	static Backbutton() {
-		cy.get("[data-cy=Goback]").click()
+		cy.datacy("Goback").click()
 	}
 	static EmptyField() {
-		cy.get("[data-cy=match]").should("have.text", "")
-		cy.get("[data-cy=info]").should("have.text", "")
-		cy.get("[data-cy=home]").should("have.text", "")
-		cy.get("[data-cy=score]").should("have.text", "")
-		cy.get("[data-cy=amounts]").should("have.text", "")
+		cy.datacy("match").should("have.text", "")
+		cy.datacy("info").should("have.text", "")
+		cy.datacy("home").should("have.text", "")
+		cy.datacy("score").should("have.text", "")
+		cy.datacy("amounts").should("have.text", "")
 
-		cy.get("[data-cy=submit]").click()
-		cy.get("[data-cy=danger]").should("have.text", "invalid Form")
+		cy.datacy("submit").click()
+		cy.datacy("danger").should("have.text", "invalid Form")
 	}
 	static ValidFields() {
-		cy.get("[data-cy=match]").type("ng-reflect-model", { force: true })
-		cy.get("[data-cy=info]")
-			.type("1", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=home]")
-			.type("2", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=score]")
-			.type("3", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=amounts]")
-			.type("4", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=submit]").click()
+		cy.datacy("match").type("ng-reflect-model", { force: true })
+		cy.datacy("info").type("1", { force: true }).should("have.length", "1")
+		cy.datacy("home").type("2", { force: true }).should("have.length", "1")
+		cy.datacy("score").type("3", { force: true }).should("have.length", "1")
+		cy.datacy("amounts").type("4", { force: true }).should("have.length", "1")
+		cy.datacy("submit").click()
 	}
 	static ValidationMsg() {
-		cy.get("[data-cy=match]").click()
-		cy.get("[data-cy=info]").click()
-		cy.get("[data-cy=home]").click()
-		cy.get("[data-cy=score]").click()
-		cy.get("[data-cy=amounts]").click()
+		cy.datacy("match").click()
+		cy.datacy("info").click()
+		cy.datacy("home").click()
+		cy.datacy("score").click()
+		cy.datacy("amounts").click()
 
-		cy.get("[data-cy=homescore]").should(
-			"have.text",
-			" Home Score is required "
-		)
-		cy.get("[data-cy=numberreq]").should("have.text", " Card Info is required ")
-		cy.get("[data-cy=awayscore]").should(
-			"have.text",
-			" Away Score is required "
-		)
+		cy.datacy("homescore").should("have.text", " Home Score is required ")
+		cy.datacy("numberreq").should("have.text", " Card Info is required ")
+		cy.datacy("awayscore").should("have.text", " Away Score is required ")
 		// cy.get('[data-cy=amountscore]').should('have.value', ' Amount is required ')
 	}
 	static Resetbtn() {
-		cy.get("[data-cy=match]").type("ng-reflect-model", { force: true })
-		cy.get("[data-cy=info]")
-			.type("1", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=home]")
-			.type("2", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=score]")
-			.type("3", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=amounts]")
-			.type("4", { force: true })
-			.should("have.length", "1")
-		cy.get("[data-cy=reset]")
-			.should("be.visible")
-			.and("have.text", "Reset")
-			.click()
+		cy.datacy("match").type("ng-reflect-model", { force: true })
+		cy.datacy("info").type("1", { force: true }).should("have.length", "1")
+		cy.datacy("home").type("2", { force: true }).should("have.length", "1")
+		cy.datacy("score").type("3", { force: true }).should("have.length", "1")
+		cy.datacy("amounts").type("4", { force: true }).should("have.length", "1")
+		cy.datacy("reset").should("be.visible").and("have.text", "Reset").click()
 	}
 }

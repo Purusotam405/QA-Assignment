@@ -2,9 +2,9 @@ describe("Visual Regression --Login Page", () => {
 	before(function () {
 		cy.fixture("adminLogin.json").then((data) => {
 			cy.visit(data.adminUrl)
-			cy.get("[data-cy=email]").type(data.email)
-			cy.get("[data-cy=password]").type(data.password)
-			cy.get("[data-cy=button]").click()
+			cy.datacy("email").type(data.email)
+			cy.datacy("password").type(data.password)
+			cy.datacy("button").click()
 		})
 	})
 	it("Desktop Layout", () => {
@@ -14,14 +14,14 @@ describe("Visual Regression --Login Page", () => {
 	it("Tablet Layout", () => {
 		cy.setResolution("ipad-2")
 		cy.matchImageSnapshot({
-			failureThreshold: 100.0,
+			failureThreshold: 10.0,
 			failureThresholdType: "percent",
 		})
 	})
 	it("Mobile Layout", () => {
 		cy.setResolution("iphone-6")
 		cy.matchImageSnapshot({
-			failureThreshold: 100.0,
+			failureThreshold: 10.0,
 			failureThresholdType: "percent",
 		})
 	})

@@ -2,14 +2,15 @@ import Betting from "./pageobjectmodel/Betting/betting"
 import BasePage from "./pageobjectmodel/basepage"
 
 /// <reference types="Cypress" />
+
 describe("End to end test for betting validation", function () {
 	beforeEach(function () {
 		cy.loginsuccess()
 		BasePage.setDesktop()
 		Betting.Betbutton()
 	})
-	// it('Test display option', function () {
-	//     Betting.Betbutton()
+	// it("Test display option", function () {
+	// 	Betting.Betbutton()
 	// })
 
 	it("Test Goback button to redirect user to homepage", function () {

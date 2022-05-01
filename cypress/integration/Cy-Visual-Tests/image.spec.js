@@ -21,7 +21,7 @@ describe("Single Element Snapshot", () => {
 	it("Should match a single element on the page", () => {
 		cy.visit("http://localhost:4200/login")
 		cy.get("[data-cy=button]").matchImageSnapshot({
-			failureThreshold: 100.0,
+			failureThreshold: 10.0,
 			failureThresholdType: "percent",
 		})
 	})

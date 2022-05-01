@@ -1,12 +1,12 @@
 {
   "baseUrl": "http://localhost:4200/login",
   "experimentalFetchpolyFill": true,
-  "video": false,
+  "video": true,
   "screenshot":true,
   "defaultCommandTimeout": 5000,
   "pageLoadTimeout": 10000,
   "waitForAnimations": true,
   "projectId": "amv8z9",
-  "viewportwidth":1000,
-  "viewportheight":660
+  "viewportwidth":1920,
+  "viewportheight":1080
   }

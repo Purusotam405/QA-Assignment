@@ -1,0 +1,98 @@
+1. To run all the spec files headlessly
+npx cypress run
+in the packet.json file upadte(test:cypress run)
+
+2.npm test--->second option if in the packet.json
+
+3.Run all spec files in a folder
+npx cypress run --spec "cypress/integration/examples/**/*"
+or
+npm run test --spec "cypress/integration/examples/**/*"
+
+4.Run only one spec file
+npx cypress run --spec "cypress/integration/example/actions.spec.js"
+or
+npm run test --spec "cypress/integration/example/actions.spec.js"
+
+5.Run or skip a specific test in a file
+add only  or skip to it block, hooks are always be executed
+
+6.To install the plugins
+npm install --save-dev cypress-file -upload
+then
+import 'cypress-file-upload' in support<commands.js
+ then use:
+const filName='data.json';
+
+//upload  file
+
+cy.fixture(fileName).then(fileContent=>{
+cy.get('[data-cy="dropzone"]').upload(
+{fileContent,fileName,mimeType:'application/json'},,
+{subjectType:'drag-n-drop'},
+);
+});
+
+
+
+1.install Mocha
+npm install mocha --save-dev
+
+2.install cypress-multi-reporters
+npm install cypress-multi-reporters --save-dev
+
+3.install mochawesome
+npm install mochawesome --save-dev
+
+4.install mochawesome-merge
+npm install mochwesome-merge --save-dev
+
+5. install mochawesome-report-generator
+npm install mochwesome-report-generator --save-dev
+
+6.To combine json files in to one
+mochawesome-merge --reportDir cypress/reports/
+
+mocha > cypress/reportd/mochreports/report.json
+
+7.To Generate HTML report
+merge cypress/reports/mochreports/report.json -f report -o cypress/reports/mochareports
+
+8.Cypress Assertions
+cy.get('class/id').its('length').should('eq',10)
+cy.clearCookies({log:true})
+cy.clearLocalStorage('your item {log:true}')
+
+9.Time and Date modification in cypress
+it('Should overwrite the current time',()=>{
+const date=new Date(2022,03,11).getTime()
+cy.clock(date)
+cy.log(date)
+})
+
+CYpress.json commands
+"baseUrl":"Youur url goes here",
+"watchForFileChanges":false,
+"ViewportWidth":1000,
+"ViewportHeight":600,
+"waitforAnimations":true,
+"AnimationDistanceThreshold":20,
+"DefaultCommandTimeout":5000,
+execTimeout:60000,
+"pageLoadTimeout":60000,
+"requestTimeout":15000,
+"respomseTimeout":15000,
+"video":false,
+"failOnStatusCode":false
+
+
+Run Jenkins
+npm run %script%
+
+Run Percy in Power Terminal Shell
+$env:PERCY_TOKEN ="[yourToken]"
+
+
+
+
+
