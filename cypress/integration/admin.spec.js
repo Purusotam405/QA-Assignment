@@ -36,7 +36,7 @@ describe("e2e Cypress Test", function () {
 		cy.datacy("score").type("4", { force: true }).should("have.length", "1")
 		cy.datacy("amounts").type("5", { force: true }).should("have.length", "1")
 		cy.datacy("submit").click()
-		// cy.get('[data-cy="reset"]').click();
+		cy.get('[data-cy="reset"]').click()
 	})
 
 	it("Invalid Betting", () => {
