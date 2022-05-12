@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-
+// E2E without POM
 describe("e2e Cypress Test", function () {
 	beforeEach(function () {
 		cy.visit("/login")

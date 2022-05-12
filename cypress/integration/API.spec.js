@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
 
+// For API Validation Test
 describe("REST API Test with Cypress", function () {
 	it("API Test - Validate Headers", () => {
 		cy.request("http://localhost:4200").as("App")

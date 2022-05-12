@@ -2,6 +2,7 @@ import Login from "./pageobjectmodel/Login/login"
 import BasePage from "./pageobjectmodel/basepage"
 
 /// <reference types="Cypress" />
+// For logging into the application
 
 describe("e2e Cypress Test", function () {
 	beforeEach(() => {

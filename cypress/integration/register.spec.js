@@ -2,6 +2,8 @@ import Register from "./pageobjectmodel/Register/register"
 import BasePage from "./pageobjectmodel/basepage"
 /// <reference types="Cypress" />
 
+// A POM for registration to the system
+
 describe("Kickoff App Registration", () => {
 	beforeEach(() => {
 		cy.visit("url")

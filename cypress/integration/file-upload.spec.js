@@ -1,3 +1,4 @@
+// FileUpload example
 describe("Tutorialspoint Test", function () {
 	it("Test Case6", function () {
 		const pic1 = "favicon.ico"
