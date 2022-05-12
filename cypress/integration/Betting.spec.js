@@ -9,9 +9,9 @@ describe("End to end test for betting validation", function () {
 		BasePage.setDesktop()
 		Betting.Betbutton()
 	})
-	// it("Test display option", function () {
-	// 	Betting.Betbutton()
-	// })
+	it("Test display option", function () {
+		Betting.Betbutton()
+	})
 
 	it("Test Goback button to redirect user to homepage", function () {
 		Betting.Backbutton()
