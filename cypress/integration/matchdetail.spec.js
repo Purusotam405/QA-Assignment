@@ -2,7 +2,7 @@ import BasePage from "./pageobjectmodel/basepage"
 import MatchDetails from "./pageobjectmodel/MatchDetails/MatchDetails"
 
 /// <reference types="Cypress" />
-// For viewing match details in the application
+// For viewing match details in the application portal
 
 describe("End to end Test for Match Details", function () {
 	beforeEach(function () {

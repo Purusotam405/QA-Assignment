@@ -1,4 +1,6 @@
 import BasePage from "../basepage"
+
+// Booking Validations
 export default class Booking extends BasePage {
 	static BookingOption() {
 		cy.datacy("bookings")

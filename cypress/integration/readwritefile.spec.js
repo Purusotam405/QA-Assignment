@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-// Example to read and write a file
+// Example to read and write a sample-file
 
 describe("Read-write-file-contaent", () => {
 	it("write a file", () => {

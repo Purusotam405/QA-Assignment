@@ -2,7 +2,7 @@ import Register from "./pageobjectmodel/Register/register"
 import BasePage from "./pageobjectmodel/basepage"
 /// <reference types="Cypress" />
 
-// A POM for registration to the system
+// A POM for registration to the system portal
 
 describe("Kickoff App Registration", () => {
 	beforeEach(() => {

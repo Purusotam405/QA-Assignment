@@ -1,4 +1,4 @@
-// Creatting a data table example
+// Creating a data table example/visual test
 describe("Visual Regression - Data-tables", () => {
 	before(function () {
 		cy.fixture("adminLogin.json").then((data) => {

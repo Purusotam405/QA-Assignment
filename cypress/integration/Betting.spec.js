@@ -2,6 +2,7 @@ import Betting from "./pageobjectmodel/Betting/betting"
 import BasePage from "./pageobjectmodel/basepage"
 
 /// <reference types="Cypress" />
+// Betting Validations
 
 describe("End to end test for betting validation", function () {
 	beforeEach(function () {

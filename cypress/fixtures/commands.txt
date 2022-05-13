@@ -86,8 +86,6 @@ execTimeout:60000,
 "failOnStatusCode":false
 
 
-Run Jenkins
-npm run %script%
 
 Run Percy in Power Terminal Shell
 $env:PERCY_TOKEN ="[yourToken]"

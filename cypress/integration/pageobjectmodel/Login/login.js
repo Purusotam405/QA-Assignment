@@ -1,4 +1,5 @@
 import BasePage from "../basepage"
+// Loggin in to the application portal
 export default class Login extends BasePage {
 	static PageLoad() {
 		cy.fixture("adminLogin").then((data) => {
