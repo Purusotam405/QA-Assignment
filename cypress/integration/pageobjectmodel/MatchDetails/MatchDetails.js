@@ -1,4 +1,6 @@
 import BasePage from "../basepage"
+
+// View match details from the portal
 export default class MatchDetails extends BasePage {
 	static DisplayMatchDetails() {
 		cy.datacy("match-details")

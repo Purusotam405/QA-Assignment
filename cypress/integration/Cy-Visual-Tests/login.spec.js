@@ -1,4 +1,4 @@
-// Logging into the application
+// Logging into the application portal
 describe("Visual Regression --Login Page", () => {
 	before(function () {
 		cy.fixture("adminLogin.json").then((data) => {

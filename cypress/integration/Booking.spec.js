@@ -2,7 +2,7 @@ import Booking from "./pageobjectmodel/Booking/booking"
 import BasePage from "./pageobjectmodel/basepage"
 /// <reference types="Cypress" />
 
-// Betting Validation
+// Booking Validations
 
 describe("Logging In for booking tickets", function () {
 	beforeEach(function () {

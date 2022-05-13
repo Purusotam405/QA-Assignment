@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-// Example to access data from the fixtures folder
+// To access data from the fixtures folder
 describe("Login from fixture data", function () {
 	it("signin", function () {
 		cy.visit("/login")

@@ -1,5 +1,6 @@
 import BasePage from "../basepage"
 
+// Betting validations
 export default class Betting extends BasePage {
 	static Betbutton() {
 		cy.datacy("Bet").first().click()

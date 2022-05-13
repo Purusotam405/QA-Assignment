@@ -1,9 +1,9 @@
+//mailosaur Set up
 let emailAddress
 
 export function generateMailosaurEmail() {
 	emailAddress = `anything@${Cypress.env(serverId)}.mailosaur.net`
 
-	//example
 	cy.datacy("email").type(emailAddress)
 }
 export function verifyEmail(emailSubject) {

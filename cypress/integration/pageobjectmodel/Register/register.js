@@ -1,4 +1,5 @@
 import BasePage from "../basepage"
+// Register to the portal with diffrent Validations approaches
 export default class Register extends BasePage {
 	static EmptyFieldsRegister() {
 		cy.datacy("email").should("have.value", "")

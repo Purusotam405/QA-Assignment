@@ -1,4 +1,4 @@
-// POM example
+// class using POM
 class BasePage {
 	static loadHomePage() {
 		cy.visit("/login")
